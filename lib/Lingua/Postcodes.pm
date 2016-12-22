@@ -9,6 +9,7 @@ use base 'Exporter';
 our @EXPORT = 'name';
 
 our %POSTCODES = (
+    AL => { EN => 'Post Code', AL => 'Kodi Postar'},
     FR => { EN => 'Postal Code', FR => 'Code Postal'},
     GB => { EN => 'Postcode',    FR => '?'},
     IE => { EN => 'Eircode',     FR => '?'},
