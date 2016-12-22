@@ -3,6 +3,7 @@ use warnings;
 use utf8;
 
 package Lingua::Postcodes;
+# ABSTRACT: Returns the names of postcodes/zipcodes
 
 use base 'Exporter';
 our @EXPORT = 'name';
@@ -29,3 +30,9 @@ sub name {
     }
 }
 1;
+
+=head1 NAME 
+
+Lingua::Postcodes - Provide names for postcodes/zipcodes
+
+=cut
