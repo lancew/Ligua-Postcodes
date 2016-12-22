@@ -13,6 +13,7 @@ our %POSTCODES = (
     GB => { EN => 'Postcode',    FR => '?'},
     IE => { EN => 'Eircode',     FR => '?'},
     IN => { EN => 'PIN Code',    FR => '?'},
+    RO => { EN => 'Postal Code', RO => 'Cod poștal'},
     US => { EN => 'Zip code',    FR => '?'},
 );
 

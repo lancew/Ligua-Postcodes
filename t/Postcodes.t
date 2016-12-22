@@ -1,5 +1,8 @@
-use Test::More tests => 8;
- 
+use Test::More tests => 10;
+use utf8; 
+
+binmode Test::More->builder->$_, ":utf8" for qw/output failure_output todo_output/;
+
 BEGIN {
         use_ok( 'Lingua::Postcodes' );
 }
@@ -14,3 +17,7 @@ is name('GB', 'FR'), '?', '"GB" returns "?" when using "FR" language parameter -
 
 is name('FR', 'EN'), 'Postal Code', '"FR" returns "Postal Code" when using "EN" language parameter';
 is name('FR', 'FR'), 'Code Postal', '"FR" returns "Code Postal" when using "FR" language parameter';
+
+# Romania with UTF8 character
+is name('RO', 'EN'), 'Postal Code', '"RO" returns "Postal Code" when using "EN" language parameter';
+is name('RO', 'RO'), 'Cod poștal', '"RO" returns "Cod poștal" when using "RO" language parameter';
