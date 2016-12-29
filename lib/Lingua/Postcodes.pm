@@ -211,8 +211,51 @@ sub name {
 }
 1;
 
+=pod
+
+=encoding UTF-8
+
 =head1 NAME
 
 Lingua::Postcodes - Provide names for postcodes/zipcodes
+
+=head1 SYNOPSIS
+
+    use Ligua::Postcodes;
+
+    print 'The English name of a postcode in the UK is:', name('GB');
+    # The English name of a postcode in the UK is Postcode
+
+    print 'The English name of a postcode in Japan is:', name('JP', 'EN');
+    # The English name of a postcode in Japan is Postal code
+
+    print 'The Japanese name of a postcode in Japan is:', name('JP', 'JP');
+    # The Japanese name of a postcode in Japan is 郵便番号
+
+=head1 DESCRIPTION
+
+This module allows the easy translation of the name of postcodes (postal codes/ zip codes).
+
+Specifically it has been written to give the English name for post codes in other countries.
+When working on a multi-national website, where address information is required, this module
+helps the developer to put the correct term in the label of a HTML form to match the nation.
+For example, when handling the various names for postcodes across Europe.
+
+This module does not parse or handle postcodes themselves; it simply provides a programmatic
+way of getting the correct name for postcodes for nations.
+
+=head1 AUTHOR
+
+Lance Wicks E<lt>lancew@cpan.orgE<gt>
+
+=head1 LICENSE AND COPYRIGHT
+
+Copyright (c) 2016, Lance Wicks. All rights reserved.
+
+This module is free software; you can redistribute it and/or
+modify it under the same terms as Perl itself. See L<perlartistic>.
+
+
+
 
 =cut
