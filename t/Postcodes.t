@@ -1,4 +1,4 @@
-use Test::More tests => 10;
+use Test::More tests => 11;
 use utf8;
 
 binmode Test::More->builder->$_, ":utf8" for qw/output failure_output todo_output/;
@@ -6,6 +6,10 @@ binmode Test::More->builder->$_, ":utf8" for qw/output failure_output todo_outpu
 BEGIN {
         use_ok( 'Lingua::Postcodes' );
 }
+
+is Lingua::Postcodes::name('IE'), 'Eircode', 'Works okay without importing';
+
+use Lingua::Postcodes 'name';
 
 is name('XPTO'), undef, 'Returns UNDEF if country code does not exist';
 

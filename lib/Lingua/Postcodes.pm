@@ -6,8 +6,8 @@ use utf8;
 
 # ABSTRACT: Returns the names of postcodes/zipcodes
 
-use base 'Exporter';
-our @EXPORT = 'name';
+use Exporter 'import';
+our @EXPORT_OK = 'name';
 
 my %POSTCODES = (
     AD => { EN => 'Postal code' },
@@ -220,14 +220,20 @@ Lingua::Postcodes - Provide names for postcodes/zipcodes
 
 =head1 SYNOPSIS
 
-    use Ligua::Postcodes;
+    use Lingua::Postcodes;
 
-    print 'The English name of a postcode in the UK is:', name('GB');
+    print 'The English name of a postcode in the UK is:', Lingua::Postcodes::name('GB');
     # The English name of a postcode in the UK is Postcode
 
-    print 'The English name of a postcode in Japan is:', name('JP', 'EN');
+    print 'The English name of a postcode in Japan is:', Lingua::Postcodes::name('JP', 'EN');
     # The English name of a postcode in Japan is Postal code
 
+    print 'The Japanese name of a postcode in Japan is:', Lingua::Postcodes::name('JP', 'JP');
+    # The Japanese name of a postcode in Japan is 郵便番号
+
+    # Alternate usage:
+
+    use Ligua::Postcodes 'name';
     print 'The Japanese name of a postcode in Japan is:', name('JP', 'JP');
     # The Japanese name of a postcode in Japan is 郵便番号
 
