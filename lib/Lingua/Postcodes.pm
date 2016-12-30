@@ -1,7 +1,6 @@
-use strict;
-
 package Lingua::Postcodes;
 
+use strict;
 use warnings;
 use utf8;
 
@@ -10,7 +9,7 @@ use utf8;
 use base 'Exporter';
 our @EXPORT = 'name';
 
-our %POSTCODES = (
+my %POSTCODES = (
     AD => { EN => 'Postal code' },
     AF => { EN => 'Postal code' },
     AI => { EN => 'Postcode' },
@@ -198,13 +197,13 @@ our %POSTCODES = (
 sub name {
     my $country_code = shift;
     if ( @_ == 0 ) {
-        return undef unless exists $POSTCODES{$country_code};
+        return unless exists $POSTCODES{$country_code};
 
         return $POSTCODES{$country_code}{'EN'};
     }
     else {
         my $language = shift;
-        return undef unless exists $POSTCODES{$country_code}{$language};
+        return unless exists $POSTCODES{$country_code}{$language};
 
         return $POSTCODES{$country_code}{$language};
     }
