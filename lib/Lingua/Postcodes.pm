@@ -84,7 +84,7 @@ my %POSTCODES = (
     IE => { EN => 'Eircode' },
     IL => { EN => 'Postal code' },
     IM => { EN => 'Postcode' },
-    IN => { EN => 'PIN code' },
+    IN => { EN => 'PIN', HI => 'डाक कोड', TA => 'அஞ்சல் குறியீடு' },
     IO => { EN => 'Postcode' },
     IQ => { EN => 'Postal code' },
     IR => { EN => 'Postal code' },
