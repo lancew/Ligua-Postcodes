@@ -2,7 +2,7 @@ run-name: Test
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   perl_tester:
