@@ -225,41 +225,37 @@ Lingua::Postcodes - Provide names for postcodes/zipcodes
 
 =head1 SYNOPSIS
 
-    use Lingua::Postcodes;
+    use Lingua::Postcodes qw(name);
 
-    print 'The English name of a postcode in the UK is:', Lingua::Postcodes::name('GB');
-    # The English name of a postcode in the UK is Postcode
+    print name('GB');           # Postcode
+    print name('JP', 'EN');     # Postal code
+    print name('JP', 'JP');     # 郵便番号
 
-    print 'The English name of a postcode in Japan is:', Lingua::Postcodes::name('JP', 'EN');
-    # The English name of a postcode in Japan is Postal code
-
-    print 'The Japanese name of a postcode in Japan is:', Lingua::Postcodes::name('JP', 'JP');
-    # The Japanese name of a postcode in Japan is 郵便番号
-
-    # Alternate usage:
-
-    use Ligua::Postcodes 'name';
-    print 'The Japanese name of a postcode in Japan is:', name('JP', 'JP');
-    # The Japanese name of a postcode in Japan is 郵便番号
-
-    # Unknown postcodes/systems
-    print 'No postal code system for this country' if Lingua::Postcodes::name('ZZZZZZ') eq undef;
-    print 'We do not have the translation' if Lingua::Postcodes::name('GB', 'FR') eq 'undef';
+    # Error handling
+    print "Unknown country code" unless defined name('INVALID');
+    print "Translation not available" unless defined name('GB', 'FR');
 
 =head1 DESCRIPTION
 
-This module allows the easy translation of the name of postcodes (postal codes/ zip codes).
+Lingua::Postcodes provides translations for postcode/zipcode names across different countries and languages. It's particularly useful for developers working on multi-national websites that require address information.
 
-Specifically it has been written to give the English name for post codes in other countries.
-When working on a multi-national website, where address information is required, this module
-helps the developer to put the correct term in the label of a HTML form to match the nation.
-For example, when handling the various names for postcodes across Europe.
+This module does not parse or validate postcodes; it simply provides the correct term for postcodes in different nations and languages.
 
-This module does not parse or handle postcodes themselves; it simply provides a programmatic
-way of getting the correct name for postcodes for nations.
+=head1 FUNCTIONS
 
-Reference for if/what a postcode is called in mainly referencing:
- https://en.wikipedia.org/wiki/List_of_postal_codes
+=head2 name($country_code, [$language])
+
+Returns the name of the postcode system for the given country code and language.
+
+Parameters:
+    - $country_code: Two-letter ISO country code (required)
+    - $language: Two-letter language code (optional, defaults to 'EN')
+
+Returns undef if the country code is unknown or the translation is not available.
+
+=head1 SEE ALSO
+
+L<https://en.wikipedia.org/wiki/List_of_postal_codes>
 
 =head1 AUTHOR
 
@@ -267,12 +263,9 @@ Lance Wicks E<lt>lancew@cpan.orgE<gt>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2016, Lance Wicks. All rights reserved.
+Copyright (c) 2016-2024, Lance Wicks. All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.
-
-
-
 
 =cut
