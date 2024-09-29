@@ -13,7 +13,10 @@ jobs:
       fail-fast: false
       matrix:
         perl-version:
-          - 'blead'
+          - 'devel'
+          - 'latest'
+          - '5.40'
+          - '5.30'
           - '5.20'
           - '5.18'
           - '5.16'
