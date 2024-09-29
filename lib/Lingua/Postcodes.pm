@@ -205,19 +205,12 @@ my %POSTCODES = (
 );
 
 sub name {
-    my $country_code = shift;
-    if ( @_ == 0 ) {
-        return unless exists $POSTCODES{$country_code};
-
-        return $POSTCODES{$country_code}{'EN'};
-    }
-    else {
-        my $language = shift;
-        return unless exists $POSTCODES{$country_code}{$language};
-
-        return $POSTCODES{$country_code}{$language};
-    }
+    my ($country_code, $language) = @_;
+    return unless exists $POSTCODES{$country_code};
+    
+    return $POSTCODES{$country_code}{$language // 'EN'};
 }
+
 1;
 
 =pod
