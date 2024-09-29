@@ -1,5 +1,6 @@
 package Lingua::Postcodes;
 
+use 5.008;  # Declare minimum Perl version
 use strict;
 use warnings;
 use utf8;
@@ -208,7 +209,8 @@ sub name {
     my ($country_code, $language) = @_;
     return unless exists $POSTCODES{$country_code};
     
-    return $POSTCODES{$country_code}{$language // 'EN'};
+    $language = 'EN' unless defined $language;
+    return $POSTCODES{$country_code}{$language};
 }
 
 1;
